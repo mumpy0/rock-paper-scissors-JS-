@@ -97,11 +97,13 @@ function playRound(humanChoice,computerChoice){
 
     }
 }
+
 /* okay so now we have logic for one round of match but we need to pass the arguments in the logic function defined above
 */
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection,computerSelection);
+console.log(playRound(humanSelection, computerSelection));
 
 /* so for that we made 2 variables humanSelection and computerSelection :
 they store the value of our initial function's result (they defined how human is going to input value and how 
@@ -110,7 +112,36 @@ now since our variables have  values of human and computer choice , we can pass 
 and so we do a function call with humanSelection and computerSelection variables as arguments)
 */
 
-/* now we need a function for logic that can make a game last for 5 rounds and then end it*/
+/* now we need a function for logic that can make a game last for 5 rounds and then end it
+function named playGame that calls playRound to play 5 rounds, keeps track of the scores 
+and declares a winner at the end.*/
+
+
 function playGame(){
+    
+    //what im thinking is : a variable round that keeps track of total rounds played, initialized to 0
+    //if round reaches 5, the game ends. 
+    // un-till then for every round:  function playRound() will be called. 
+    for (let round = 0;round < 5; round++){
+    // for loop syntax for(initialized value ; condition ; update)
+    const humanSelection = getHumanChoice(); //for every round i need to get new input 
+    const computerSelection = getComputerChoice();// for every round i need to tell computer to choose
+    playRound(humanSelection,computerSelection);// then for every new choice game is played with this logic
+    }
+    //now just need to calculate the score and declare winner
+    //after final round (5), humanScore and computerScore contains final result
+
+    if (humanScore > computerScore) {
+        return "You win the game!";
+    }
+    else if (computerScore > humanScore) {
+        return "Computer wins the game!";
+    }
+    else {
+        return "The game is a tie!";
+}
+
 
 }
+console.log(playGame());
+
