@@ -34,6 +34,7 @@ console.log(computerChoice);
 
 function getHumanChoice(){
     let humanChoice = prompt("valid inputs : rock or paper or scissors")
+    humanChoice = humanChoice.toLocaleLowerCase(); 
     if(humanChoice === "rock"){
         return "rock";
     }
@@ -53,3 +54,23 @@ called humanChoice , then the if else block decides what will the code return af
 variable */
 
 console.log(getHumanChoice());
+
+
+
+
+
+//now we'll declare a variable to keep track of human and computer scores.
+
+let humanScore = 0;
+let computerScore = 0;
+
+//now we will build the logic for how human and computer choice will be compared and who wins when for ONE Round
+
+function playRound(humanChoice,computerChoice){
+    if(humanChoice === computerChoice){
+        return " it's a tie"
+    }
+
+}
+
+
