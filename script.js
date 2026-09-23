@@ -34,7 +34,7 @@ console.log(computerChoice);
 
 function getHumanChoice(){
     let humanChoice = prompt("valid inputs : rock or paper or scissors")
-    humanChoice = humanChoice.toLocaleLowerCase(); 
+    humanChoice = humanChoice.toLocaleLowerCase(); //so that user can input case insensitive inputs
     if(humanChoice === "rock"){
         return "rock";
     }
@@ -70,7 +70,47 @@ function playRound(humanChoice,computerChoice){
     if(humanChoice === computerChoice){
         return " it's a tie"
     }
+    else if (humanChoice === "rock" && computerChoice === "scissors" ){
+        humanScore++;
+        return "shoot! you just won a round"
+    }
+    else if (humanChoice === "paper" && computerChoice === "rock"){
+        humanScore++;
+        return "shoot! is this really happening rn?"
+    }
+    else if (humanChoice === "rock" && computerChoice === "paper"){
+        computerScore++;
+        return "luck is on mah side"
+    }
+    else if (humanChoice === "paper" && computerChoice === "scissors"){
+        computerScore++;
+        return "hell yeha, today i'm winning this game babyy!"
+    }
+    else if (humanChoice === "scissors" && computerChoice === "paper"){
+        humanScore++;
+        return "shoot! you just won a round"
+
+    }
+    else if (humanChoice === "scissors" && computerChoice === "rock"){
+        computerScore++;
+        return "hell yeha, today i'm winning this game babyy!"
+
+    }
+}
+/* okay so now we have logic for one round of match but we need to pass the arguments in the logic function defined above
+*/
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection,computerSelection);
+
+/* so for that we made 2 variables humanSelection and computerSelection :
+they store the value of our initial function's result (they defined how human is going to input value and how 
+computer is going to choose value in rock paper and scissors
+now since our variables have  values of human and computer choice , we can pass them as arguments in the playRound function
+and so we do a function call with humanSelection and computerSelection variables as arguments)
+*/
+
+/* now we need a function for logic that can make a game last for 5 rounds and then end it*/
+function playGame(){
 
 }
-
-
